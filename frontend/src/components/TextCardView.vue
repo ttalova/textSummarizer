@@ -2,8 +2,8 @@
  <div>
   <b-card
     tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
+    style="max-width: 40rem;"
+    class="mb-4"
   >
     <b-card-title>
     {{this.title}}

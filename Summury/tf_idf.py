@@ -3,10 +3,12 @@ import math
 import nltk
 from nltk.corpus import stopwords
 from nltk import sent_tokenize, word_tokenize, PorterStemmer
-
+nltk.download('punkt')
+nltk.download("stopwords")
 
 def _create_frequency_matrix(sentences):
     frequency_matrix = {}
+    nltk.download('punkt')
     nltk.download("stopwords")
     stopWords = stopwords.words('russian')
 
@@ -172,6 +174,7 @@ def main(text):
     # print(threshold)
 
     # 9 Important Algorithm: Generate the summary
-    summary = _generate_summary(sentences, sentence_scores, 1.3 * threshold)
+    # summary = _generate_summary(sentences, sentence_scores, 1.3 * threshold)
+    summary = _generate_summary(sentences, sentence_scores, threshold)
 
     return summary

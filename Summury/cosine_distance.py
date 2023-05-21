@@ -56,13 +56,14 @@ def build_similarity_matrix(sentences, stop_words):
     return similarity_matrix
 
 
-def main(file_name, top_n=5):
+def main(file_name):
     nltk.download("stopwords")
     stop_words = stopwords.words('russian')
     summarize_text = []
 
     # Step 1 - Read text anc split it
     sentences = read_article(file_name)
+    top_n = int(len(sentences) * 0.6)
 
     # Step 2 - Generate Similary Martix across sentences
     sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)

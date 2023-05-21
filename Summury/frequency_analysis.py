@@ -2,10 +2,10 @@ from collections import Counter
 import heapq
 
 
-def main(text, num_sentences=5):
+def main(text):
     # Разбить текст на предложения
     sentences = text.split('. ')
-
+    num_sentences = int(len(sentences) * 0.6)
     # Подсчитать частотность слов
     words = [word for sentence in sentences for word in sentence.split()]
     word_frequency = Counter(words)
