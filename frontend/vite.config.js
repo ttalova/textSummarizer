@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
+      vue: '@vue/compat',
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }

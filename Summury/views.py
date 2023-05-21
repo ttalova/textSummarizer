@@ -26,7 +26,8 @@ class MethodView(APIView):
     )
     def post(self, request, *args, **kwargs):
         id = self.kwargs["id"]
-        print(type(id))
+        print(id)
+        print(request.data)
         serializer = MethodSerializer(data=request.data)
         if serializer.is_valid():
             text = request.data['text']
