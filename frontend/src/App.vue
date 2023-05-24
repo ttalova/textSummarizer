@@ -86,5 +86,11 @@ body {
 .main {
   width: 95%;
   margin-left: 1rem;
+
+}
+
+.custom-label label {
+  font-size: 20px;
+  background-color: red/* Увеличьте размер текста по вашему выбору */
 }
 </style>

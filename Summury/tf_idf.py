@@ -175,6 +175,6 @@ def main(text):
 
     # 9 Important Algorithm: Generate the summary
     # summary = _generate_summary(sentences, sentence_scores, 1.3 * threshold)
-    summary = _generate_summary(sentences, sentence_scores, threshold)
+    summary = _generate_summary(sentences, sentence_scores, 0.6 * threshold)
 
     return summary
