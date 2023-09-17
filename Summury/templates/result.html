@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты анализа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .result-container {
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        form {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Результаты анализа</h1>
+    <div class="result-container">
+        <p>Введенный текст:</p>
+        <p>{{ text }}</p>
+    </div>
+    <div class="result-container">
+        <p>Частотный анализ:</p>
+        <p>{{ sum_text_1 }}</p>
+    </div>
+    <div class="result-container">
+        <p>Косинусное расстояние:</p>
+        <p>{{ sum_text_2 }}</p>
+    </div>
+    <div class="result-container">
+        <p>TF IDF:</p>
+        <p>{{ sum_text_3 }}</p>
+    </div>
+    <form action="/" method="get">
+        <button type="submit">Вернуться на главную</button>
+    </form>
+</body>
+</html>

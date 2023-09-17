@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.decorators import api_view, action
@@ -24,18 +25,30 @@ class MethodView(APIView):
             403: 'Forbidden'
         }
     )
+    def get(self,  request, *args, **kwargs):
+        return render(request, 'home.html')
     def post(self, request, *args, **kwargs):
-        id = self.kwargs["id"]
+        ids = [1, 2, 3]
         serializer = MethodSerializer(data=request.data)
+        sum_text_1 = ''
+        sum_text_2 = ''
+        sum_text_3 = ''
         if serializer.is_valid():
             text = request.data['text']
-            if id == 1:
-                sum_text = frequency_analysis.main(text)
-            elif id == 2:
-                sum_text = cosine_distance.main(text)
-            elif id == 3:
-                sum_text = tf_idf.main(text)
+            for id in ids:
+                if id == 1:
+                    sum_text_1 = frequency_analysis.main(text)
+                elif id == 2:
+                    sum_text_2 = cosine_distance.main(text)
+                elif id == 3:
+                    sum_text_3 = tf_idf.main(text)
 
-            return Response(sum_text, status=status.HTTP_201_CREATED, )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            data = {
+                'text': text,
+                'sum_text_1': sum_text_1,
+                'sum_text_2': sum_text_2,
+                'sum_text_3': sum_text_3
+            }
+            return render(request, 'result.html', data)
+        return render(request, 'home.html')
 
